@@ -1,7 +1,11 @@
-let elements = ['rock', 'papers', 'scissors'];
+        //MAIN GAME 
+
+let elements = ['rock', 'paper', 'scissors'];
 
 let playerSelection;
 let computerSelection;
+let playerScore = 0;
+let computerScore = 0;
 
 function Computerplay(){
     return elements[Math.floor(Math.random()*elements.length)];
@@ -9,31 +13,66 @@ function Computerplay(){
 
 function playRound(playerSelection, computerSelection)
 {   // FOR TIE!
-    if(computerSelection == playerSelection) console.log("It's a tie!");
+    if(computerSelection == playerSelection) {
+            scoreinfo.textContent = 'TIE!';
+    }
     
     //FOR COMPUTER WIN
     else if((computerSelection == 'rock' && playerSelection == 'scissors')
-    ||(computerSelection == 'papers' && playerSelection == 'rock')
-    ||(computerSelection == 'scissors' && playerSelection == 'papers'))
-    {
-        console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+    ||(computerSelection == 'paper' && playerSelection == 'rock')
+    ||(computerSelection == 'scissors' && playerSelection == 'paper'))
+    {   
+        scoreinfo.textContent = 'COMPUTER WINS!'; 
+        computerScore++; 
+        computerScoreInfo.textContent = `Computer: ${computerScore}`;
     }
 
     //FOR PLAYER WIN
-    else console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-}
-
-function game()
-{
-    let i=0;
-    while(i<5)
-    {
-        playerSelection = prompt("Write rock, papers or scissors");
-        playerSelection = playerSelection.toLowerCase();
-        computerSelection = Computerplay();
-        playRound(playerSelection, computerSelection);
-        i++;
+    else {
+            scoreinfo.textContent = 'YOU WIN!';
+            playerScore++;
+            playerScoreInfo.textContent = `Player: ${playerScore}`;
     }
 }
 
-game();
+const rockBtn = document.getElementById('B1');
+const paperBtn = document.getElementById('B2');
+const scissorsBtn = document.getElementById('B3');
+const playerChoicePara = document.getElementById('playerSelection');
+const computerChoicePara = document.getElementById('computerSelection');
+const scoreinfo = document.getElementById('score');
+const playerScoreInfo = document.getElementById('player');
+const computerScoreInfo = document.getElementById('computer');
+
+rockBtn.addEventListener('click',()=> Selection('rock'));
+paperBtn.addEventListener('click',()=> Selection('paper'));
+scissorsBtn.addEventListener('click',()=> Selection('scissors'));
+
+
+function IsOver()
+{
+        if(playerScore>computerScore)
+        {
+
+                alert('PLAYER WINS! REFRESH THE PAGE TO RESTART THE GAME');
+        }
+        else alert('COMPUTER WINS! REFRESH THE PAGE TO RESTART THE GAME');
+
+       
+}
+
+function Selection(playerChoice)
+{
+        if(playerScore == 5 || computerScore == 5)
+        {
+                IsOver();
+                return;
+        }
+        playerSelection = playerChoice;
+        computerSelection = Computerplay();
+        playerChoicePara.textContent = playerSelection.toUpperCase();
+        computerChoicePara.textContent = computerSelection.toUpperCase();
+        playRound(playerSelection, computerSelection);    
+}
+
+

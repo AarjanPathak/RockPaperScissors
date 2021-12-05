@@ -6,8 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <script src="script.js"></script>
+    <h1 class="title">ROCK, PAPER & SCISSORS</h1>
+
+    <div class = "refresh">
+        <button id="refreshBtn" onclick="window.location.reload()">RESET</button>
+    </div>
+
+        <h2 id="score">SCORE</h2>
+
+        <div class ="Element">
+            <div class="gameElement">
+                <p id="player">Player: 0</p>
+            </div>
+            
+            <div class="gameElement">
+                <p id="computer">Computer: 0</p>
+            </div>
+        </div>
+
+        <div class = "selection">
+            <div class="gameSelection">
+                <p id="playerSelection"></p>
+            </div>
+            <div class="gameSelection">
+                <p id="computerSelection"></p>
+            </div>
+        </div>
+
+       <p class= "choose">CHOOSE:</p>
+       <div class="buttons">
+           <div id="Btn">
+               <button id="B1">ROCK</button>
+           </div>  
+
+             <div id="Btn">
+                <button id="B2">PAPER</button>
+             </div>  
+
+            <div id="Btn">
+                <button id="B3">SCISSORS</button>
+            </div>  
+       </div>
+       
+       <script src="script.js"></script>
 </body>
 </html>
