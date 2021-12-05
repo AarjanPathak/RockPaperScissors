@@ -54,9 +54,9 @@ function IsOver()
         if(playerScore>computerScore)
         {
 
-                alert('PLAYER WINS! REFRESH THE PAGE TO RESTART THE GAME');
+                alert('YOU WON! :)  PRESS ON  RESTART  BUTTON TO PLAY THE GAME AGAIN');
         }
-        else alert('COMPUTER WINS! REFRESH THE PAGE TO RESTART THE GAME');
+        else alert('YOU LOST! :(  PRESS ON  RESTART  BUTTON TO PLAY THE GAME AGAIN');
 
        
 }
